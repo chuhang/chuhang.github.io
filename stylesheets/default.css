@@ -357,7 +357,7 @@ footer #about {
 
 #intro2 a1 {
 	color: #fff;
-	background-color: #333;
+	background-color: #077;
 	font: normal bold 14px/44px Arial, Helvetica, sans-serif;
 	padding: 10px;
 	margin-right: 40px;
@@ -399,4 +399,52 @@ footer #about {
 	font-size: 25px;
 	line-height: 25px;
 	padding: 115px 0 0 0;
+}
+
+#intro3 {
+	background-color: #ccc;
+	margin-top: 100px;
+	padding: 40px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+#intro3 header h2 {
+	font-weight: normal;
+	line-height: 30px;
+	padding: 0 0 15px 0;
+	width: 370px;
+}
+
+#intro3 p {
+ 	width: 1000px;
+}
+
+#intro3 a1 {
+	color: #fff;
+	background-color: #077;
+	font: normal bold 14px/44px Arial, Helvetica, sans-serif;
+	padding: 10px;
+	margin-right: 40px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	text-align: center;
+}
+
+#intro3 a1:hover {
+	color: #FF9900;
+	background-color: #222;
+	text-decoration: none;
+}
+
+#intro3 #photo2 {
+	background-color: #fff;
+	float: right;
+	margin-top: -0px;
+	-moz-box-shadow: 0 1px 10px #333;
+	-webkit-box-shadow: 0  1px 10px #333;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	width: 320px;
+	height: 240px;
 }
