@@ -5,7 +5,7 @@
     <meta name="Description" content="Basic Gray">
     <meta name="author" content="CoffeeCup Software, Inc.">
     <meta name="Copyright" content="Copyright (c) 2010 CoffeeCup, all rights reserved.">
-	<title>Hang Chu - Misc.</title>
+	<title>Understand "Heat Map" in 5min</title>
     <link rel="stylesheet" href="stylesheets/default.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
     <script type="text/javascript" src="javascripts/behavior.js"></script>
@@ -26,19 +26,19 @@
         </ul>
     </nav>
     <section id="intro3">
-    	<h2>Heat Map: understand this paper in 5 minutes!</h2>
+    	<h2>Understand my "Heat Map" paper in 5 minutes!</h2>
         <h3>Goal</h3>
 		<p>Classify group activities in surveillance videos.<br>
 		<b>Example:</b> The camera sees a bunch of people, what are they doing? Gathering? Separating? Standing still? Or chasing?</p>
 		
 		<h3>Method</h3>
 		<p><b>Step 1:</b> Treat each object as a moving heat source, create heat map.<br>
-		<b>Example:</b> If this is what the camera sees:<br>
+		<b>Example:</b> If this is what the camera sees (single object):<br>
 		<center><img src="ui5m/HM/videoHM.gif" alt="tracked video" style="width:150px;height:150px"></center>
 		Then this is what its heat map looks like:<br>
 		<center><img src="ui5m/HM/HM2D.gif" alt="heatmap 2d" style="width:150px;height:150px">
 		<img src="ui5m/HM/HM3D.gif" alt="heatmap 3d" style="width:150px;height:150px"></center>
-		Different types of activity form different heat map shapes:<br>
+		Different types of activity form different heat map shapes, for example 2-object activities:<br>
 		<center><img src="ui5m/HM/img1.png" alt="heatmaps" style="width:522px;height:300px"></center>
 		<b>Step 2:</b> Align heat map.<br>
 		<b>Example:</b> Original heat maps:<br>
