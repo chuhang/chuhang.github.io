@@ -141,6 +141,8 @@ a:focus {
 
 #mast h1 {
 	padding: 30px 0 20px 40px;
+	height: 130px;
+	background-image: url("../images/header.jpg");
 }
 
 nav#global {
@@ -256,7 +258,7 @@ nav#global ul li a.selected:hover {
 }
 
 div#main {
-	background: url(../images/main_bkgd.png) repeat-y top right;
+	background: url("../images/main_bkgd.png") repeat-y top right;
 	border: none;
 }
 
