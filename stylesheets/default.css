@@ -162,7 +162,7 @@ nav#global ul {
 nav#global ul li {
 	display: inline;
 	list-style: none;
-	padding-left: 40px;
+	padding-left: 10px;
 }
 
 nav#global ul li a {
@@ -171,7 +171,7 @@ nav#global ul li a {
 	border: 2px solid #222;
 	font: normal bold 14px/44px Arial, Helvetica, sans-serif;
 	padding: 10px;
-	margin-right: 40px;
+	margin-right: 10px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	text-align: center;
