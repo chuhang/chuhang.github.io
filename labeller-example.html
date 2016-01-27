@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Labeller - Example</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<style>
+			html, body {
+				color: #808080;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #fff;
+				margin: 0px;
+				overflow: hidden;
+				width: 100%;
+				height: 100%;
+			}
+
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+
+			#centerer {
+				display: table;
+				width: 100%;
+				height: 100%;
+			}
+
+			#centerer-cell {
+				display: table-cell;
+				vertical-align: middle;
+			}
+
+			#container {
+				margin-left: auto;
+				margin-right: auto;
+				width: 1200px;  // 560*2 + border;
+			}
+
+			#container div {
+				float: left;
+			}
+			#container1, #container2, #container3, #container4 {
+				width: 560px;
+				height: 360px;
+				position: relative;
+				border: 20px solid #7fff00;
+				float:left;
+				opacity: 0.3;
+				filter: alpha(opacity=30);
+			}
+
+			a {
+				color: #0080ff;
+			}
+			
+			div.background {
+				background: url(images/id1_bg.png) no-repeat;
+				border: 0px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="background">
+			<div id="centerer-cell">
+				<div id="container">
+					<div class="container-row">
+						<div id="container1"></div>
+						<div id="container2"></div>
+					</div>
+					<div class="container-row">
+						<div id="container3"></div>
+						<div id="container4"></div>
+					</div>
+				</div>
+			</div>
+		</div>		
+
+		<script src="js/three.min.js"></script>
+		<script src="js/Detector.js"></script>
+		<script src="js/stats.min.js"></script>
+
+		<script>
+			
+var camheight=10;
+
+var vertx=[308.635659,337.961240,337.961240,308.635659,337.961240,308.635659,337.961240,343.000000,343.000000,337.961240,343.000000,337.961240,308.635659,294.736434,294.736434,308.635659,294.736434,308.635659,337.961240,333.616279,333.616279,337.961240,333.616279,337.961240,328.189922,324.062016,324.062016,328.189922,324.062016,328.189922,294.736434,324.062016,324.062016,294.736434,324.062016,294.736434,324.062016,329.000000,329.000000,324.062016,329.000000,324.062016,330.794574,328.189922,328.189922,330.794574,328.189922,330.794574,330.794574,328.189922,328.189922,330.794574,328.189922,330.794574,333.616279,330.794574,330.794574,333.616279,330.794574,333.616279,333.616279,330.794574,330.794574,333.616279,330.794574,333.616279,333.616279,330.794574,330.794574,333.616279,330.794574,333.616279,307.920635,337.944444,337.944444,307.920635,337.944444,307.920635,337.944444,342.793651,342.793651,337.944444,342.793651,337.944444,307.920635,293.920635,293.920635,307.920635,293.920635,307.920635,337.944444,332.607143,332.607143,337.944444,332.607143,337.944444,329.273810,323.944444,323.944444,329.273810,323.944444,329.273810,293.920635,323.944444,323.944444,293.920635,323.944444,293.920635,323.944444,328.793651,328.793651,323.944444,328.793651,323.944444,332.607143,329.273810,329.273810,332.607143,329.273810,332.607143,332.607143,329.273810,329.273810,332.607143,329.273810,332.607143];
+var verty=[306.007752,274.426357,274.426357,306.007752,274.426357,306.007752,274.426357,269.000000,269.000000,274.426357,269.000000,274.426357,306.007752,292.899225,292.899225,306.007752,292.899225,306.007752,274.426357,270.290698,270.290698,274.426357,270.290698,274.426357,265.251938,261.317829,261.317829,265.251938,261.317829,265.251938,292.899225,261.317829,261.317829,292.899225,261.317829,292.899225,261.317829,256.000000,256.000000,261.317829,256.000000,261.317829,267.670543,265.251938,265.251938,267.670543,265.251938,267.670543,267.670543,265.251938,265.251938,267.670543,265.251938,267.670543,270.290698,267.670543,267.670543,270.290698,267.670543,270.290698,270.290698,267.670543,267.670543,270.290698,267.670543,270.290698,270.290698,267.670543,267.670543,270.290698,267.670543,270.290698,306.777778,274.444444,274.444444,306.777778,274.444444,306.777778,274.444444,269.222222,269.222222,274.444444,269.222222,274.444444,306.777778,293.777778,293.777778,306.777778,293.777778,306.777778,274.444444,269.384921,269.384921,274.444444,269.384921,274.444444,266.289683,261.444444,261.444444,266.289683,261.444444,266.289683,293.777778,261.444444,261.444444,293.777778,261.444444,293.777778,261.444444,256.222222,256.222222,261.444444,256.222222,261.444444,269.384921,266.289683,266.289683,269.384921,266.289683,269.384921,269.384921,266.289683,266.289683,269.384921,266.289683,269.384921];
+var vertz=[0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,15.000000,15.000000,15.000000,0.000000,0.000000,0.000000,10.000000,10.000000,10.000000,0.000000,10.000000,10.000000,15.000000,15.000000,15.000000,10.000000,5.000000,5.000000,10.000000,10.000000,10.000000,5.000000,0.000000,0.000000,5.000000,5.000000,5.000000,0.000000,10.000000,10.000000,15.000000,15.000000,15.000000,10.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,30.000000,30.000000,30.000000,15.000000,15.000000,15.000000,25.000000,25.000000,25.000000,15.000000,25.000000,25.000000,30.000000,30.000000,30.000000,25.000000];
+var meshtype=[1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,2.000000,2.000000,1.000000,1.000000,3.000000,3.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,2.000000,2.000000,1.000000,1.000000];
+var meshfloornum=[1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,1.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000,2.000000];
+
+var camx=[390.9280,352.4880,424.9360];
+var camy=[227.8640,193.1320,259.0360];
+var camheading=[240,210,270];
+
+var xunit=[-0.7328,-0.6805];
+var yunit=[0.6805,-0.7328];
+			
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+
+			var apps = [];
+
+			init();
+			animate();
+
+			function init() {
+				var w = 300;
+				var h = 200;
+
+				var fullWidth = 560;
+				var fullHeight = 360;
+
+				apps.push( new App( 'container1', fullWidth, fullHeight, -w, -h, fullWidth, fullHeight ) );
+				apps.push( new App( 'container2', fullWidth, fullHeight,  w, -h, fullWidth, fullHeight ) );
+				apps.push( new App( 'container3', fullWidth, fullHeight, -w, h, fullWidth, fullHeight ) );
+				apps.push( new App( 'container4', fullWidth, fullHeight,  w, h, fullWidth, fullHeight ) );
+			}
+
+			function animate() {
+				for ( var i = 0; i < apps.length; ++i ) {
+					apps[ i ].animate();
+				}
+				requestAnimationFrame( animate );
+			}
+
+			function App( containerId, fullWidth, fullHeight, viewX, viewY, viewWidth, viewHeight ) {
+
+				var container;
+				var stats;
+
+				var camera, scene, renderer;
+
+				var mesh, group1, group2, group3;
+				
+				var geometrywall = new THREE.Geometry();
+				var materialswall = [
+						new THREE.MeshBasicMaterial( { color: 0xff0000 , side: THREE.DoubleSide} ),
+						new THREE.MeshBasicMaterial( { color: 0x000000 , side: THREE.DoubleSide, wireframe: true, transparent: true} )
+					];
+				var geometrydoor = new THREE.Geometry();
+				var materialsdoor = [
+						new THREE.MeshBasicMaterial( { color: 0x0000ff , side: THREE.DoubleSide} ),
+						new THREE.MeshBasicMaterial( { color: 0x000000 , side: THREE.DoubleSide, wireframe: true, transparent: true} )
+					];
+				var geometrywindow = new THREE.Geometry();
+				var materialswindow = [
+						new THREE.MeshBasicMaterial( { color: 0x00ff00 , side: THREE.DoubleSide} ),
+						new THREE.MeshBasicMaterial( { color: 0x000000 , side: THREE.DoubleSide, wireframe: true, transparent: true} )
+					];
+
+				var mouseX = 0, mouseY = 0;
+
+				var windowHalfX = window.innerWidth / 2;
+				var windowHalfY = window.innerHeight / 2;
+
+				init();
+
+				function init() {
+
+					container = document.getElementById( containerId );
+
+					camera = new THREE.PerspectiveCamera( 60.9275, 560/360, 0.1, 1000 );
+					//camera.setViewOffset( fullWidth, fullHeight, viewX, viewY, viewWidth, viewHeight );
+					//if (!containerId.localeCompare('container1'))
+					if (containerId.charAt(9)=='1')
+					{
+						console.log(containerId);
+						camera.position.x = camx[0];
+						camera.position.y = -camy[0];
+						camera.position.z = camheight;
+					}
+					if (containerId.charAt(9)=='2')
+					{
+						console.log(containerId);
+						camera.position.x = camx[1];
+						camera.position.y = -camy[1];
+						camera.position.z = camheight;
+					}
+					if (containerId.charAt(9)=='3')
+					{
+						console.log(containerId);
+						camera.position.x = camx[2];
+						camera.position.y = -camy[2];
+						camera.position.z = camheight;
+					}
+					if (containerId.charAt(9)=='4')
+					{
+						console.log(containerId);
+						camera.position.x = 300;
+						camera.position.y = -300;
+						camera.position.z = 100;
+					}
+
+					scene = new THREE.Scene();
+						
+					for (i=0;i<(vertx.length/3);i++)
+					{
+						var vert1=new THREE.Vector3(vertx[3*i],-verty[3*i],vertz[3*i]);
+						var vert2=new THREE.Vector3(vertx[3*i+1],-verty[3*i+1],vertz[3*i+1]);
+						var vert3=new THREE.Vector3(vertx[3*i+2],-verty[3*i+2],vertz[3*i+2]);
+						if (meshtype[i]==1)
+						{
+							geometrywall.vertices.push(vert1);
+							geometrywall.vertices.push(vert2);
+							geometrywall.vertices.push(vert3);
+						}
+						if (meshtype[i]==2)
+						{
+							geometrydoor.vertices.push(vert1);
+							geometrydoor.vertices.push(vert2);
+							geometrydoor.vertices.push(vert3);
+						}
+						if (meshtype[i]==3)
+						{
+							geometrywindow.vertices.push(vert1);
+							geometrywindow.vertices.push(vert2);
+							geometrywindow.vertices.push(vert3);
+						}
+					}
+					for (i=0;i<(geometrywall.vertices.length/3);i++)
+					{
+						geometrywall.faces.push(new THREE.Face3(3*i,3*i+1,3*i+2));
+					}
+					for (i=0;i<(geometrydoor.vertices.length/3);i++)
+					{
+						geometrydoor.faces.push(new THREE.Face3(3*i,3*i+1,3*i+2));
+					}
+					for (i=0;i<(geometrywindow.vertices.length/3);i++)
+					{
+						geometrywindow.faces.push(new THREE.Face3(3*i,3*i+1,3*i+2));
+					}
+
+					group1 = THREE.SceneUtils.createMultiMaterialObject( geometrywall, materialswall );
+					scene.add( group1 );
+
+					group2 = THREE.SceneUtils.createMultiMaterialObject( geometrydoor, materialsdoor );
+					scene.add( group2 );
+
+					group3 = THREE.SceneUtils.createMultiMaterialObject( geometrywindow, materialswindow);
+					scene.add( group3 );
+
+					renderer = new THREE.WebGLRenderer( { antialias: true } );
+					renderer.setClearColor( 0xffffff );
+					//renderer.setClearColor( 0x000000 );
+					renderer.setPixelRatio( window.devicePixelRatio );
+					renderer.setSize( container.clientWidth, container.clientHeight );
+					container.appendChild( renderer.domElement );
+					
+					stats = new Stats();
+					stats.domElement.style.position = 'absolute';
+					stats.domElement.style.top = '0px';
+					container.appendChild( stats.domElement );
+
+					//document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+					document.addEventListener( 'keydown', onKeyDown, false );
+				}
+
+				function onKeyDown( event ) {
+					//mouseX = ( event.clientX - windowHalfX );
+					//mouseY = ( event.clientY - windowHalfY );
+					switch( event.keyCode ) {
+                    case 65: //press A
+						scene.remove(group1);
+						scene.remove(group2);
+						scene.remove(group3);
+						for (i=0;i<geometrywall.vertices.length;i++)
+						{
+							geometrywall.vertices[i].x=geometrywall.vertices[i].x+xunit[0];
+							geometrywall.vertices[i].y=geometrywall.vertices[i].y-xunit[1];
+						}
+						for (i=0;i<geometrydoor.vertices.length;i++)
+						{
+							geometrydoor.vertices[i].x=geometrydoor.vertices[i].x+xunit[0];
+							geometrydoor.vertices[i].y=geometrydoor.vertices[i].y-xunit[1];
+						}
+						for (i=0;i<geometrywindow.vertices.length;i++)
+						{
+							geometrywindow.vertices[i].x=geometrywindow.vertices[i].x+xunit[0];
+							geometrywindow.vertices[i].y=geometrywindow.vertices[i].y-xunit[1];
+						}
+						geometrywall.verticesNeedUpdate=true;
+						geometrydoor.verticesNeedUpdate=true;
+						geometrywindow.verticesNeedUpdate=true;
+						group1 = THREE.SceneUtils.createMultiMaterialObject( geometrywall, materialswall);
+						group2 = THREE.SceneUtils.createMultiMaterialObject( geometrydoor, materialsdoor);
+						group3 = THREE.SceneUtils.createMultiMaterialObject( geometrywindow, materialswindow);
+						scene.add( group1 );
+						scene.add( group2 );
+						scene.add( group3 );
+                        break;
+					case 68: //press D
+						scene.remove(group1);
+						scene.remove(group2);
+						scene.remove(group3);
+						for (i=0;i<geometrywall.vertices.length;i++)
+						{
+							geometrywall.vertices[i].x=geometrywall.vertices[i].x-xunit[0];
+							geometrywall.vertices[i].y=geometrywall.vertices[i].y+xunit[1];
+						}
+						for (i=0;i<geometrydoor.vertices.length;i++)
+						{
+							geometrydoor.vertices[i].x=geometrydoor.vertices[i].x-xunit[0];
+							geometrydoor.vertices[i].y=geometrydoor.vertices[i].y+xunit[1];
+						}
+						for (i=0;i<geometrywindow.vertices.length;i++)
+						{
+							geometrywindow.vertices[i].x=geometrywindow.vertices[i].x-xunit[0];
+							geometrywindow.vertices[i].y=geometrywindow.vertices[i].y+xunit[1];
+						}
+						geometrywall.verticesNeedUpdate=true;
+						geometrydoor.verticesNeedUpdate=true;
+						geometrywindow.verticesNeedUpdate=true;
+						group1 = THREE.SceneUtils.createMultiMaterialObject( geometrywall, materialswall);
+						group2 = THREE.SceneUtils.createMultiMaterialObject( geometrydoor, materialsdoor);
+						group3 = THREE.SceneUtils.createMultiMaterialObject( geometrywindow, materialswindow);
+						scene.add( group1 );
+						scene.add( group2 );
+						scene.add( group3 );
+                        break;
+					case 87: //press W
+						scene.remove(group1);
+						scene.remove(group2);
+						scene.remove(group3);
+						for (i=0;i<geometrywall.vertices.length;i++)
+						{
+							geometrywall.vertices[i].x=geometrywall.vertices[i].x+yunit[0];
+							geometrywall.vertices[i].y=geometrywall.vertices[i].y-yunit[1];
+						}
+						for (i=0;i<geometrydoor.vertices.length;i++)
+						{
+							geometrydoor.vertices[i].x=geometrydoor.vertices[i].x+yunit[0];
+							geometrydoor.vertices[i].y=geometrydoor.vertices[i].y-yunit[1];
+						}
+						for (i=0;i<geometrywindow.vertices.length;i++)
+						{
+							geometrywindow.vertices[i].x=geometrywindow.vertices[i].x+yunit[0];
+							geometrywindow.vertices[i].y=geometrywindow.vertices[i].y-yunit[1];
+						}
+						geometrywall.verticesNeedUpdate=true;
+						geometrydoor.verticesNeedUpdate=true;
+						geometrywindow.verticesNeedUpdate=true;
+						group1 = THREE.SceneUtils.createMultiMaterialObject( geometrywall, materialswall);
+						group2 = THREE.SceneUtils.createMultiMaterialObject( geometrydoor, materialsdoor);
+						group3 = THREE.SceneUtils.createMultiMaterialObject( geometrywindow, materialswindow);
+						scene.add( group1 );
+						scene.add( group2 );
+						scene.add( group3 );
+                        break;
+					case 83: //press S
+						scene.remove(group1);
+						scene.remove(group2);
+						scene.remove(group3);
+						for (i=0;i<geometrywall.vertices.length;i++)
+						{
+							geometrywall.vertices[i].x=geometrywall.vertices[i].x-yunit[0];
+							geometrywall.vertices[i].y=geometrywall.vertices[i].y+yunit[1];
+						}
+						for (i=0;i<geometrydoor.vertices.length;i++)
+						{
+							geometrydoor.vertices[i].x=geometrydoor.vertices[i].x-yunit[0];
+							geometrydoor.vertices[i].y=geometrydoor.vertices[i].y+yunit[1];
+						}
+						for (i=0;i<geometrywindow.vertices.length;i++)
+						{
+							geometrywindow.vertices[i].x=geometrywindow.vertices[i].x-yunit[0];
+							geometrywindow.vertices[i].y=geometrywindow.vertices[i].y+yunit[1];
+						}
+						geometrywall.verticesNeedUpdate=true;
+						geometrydoor.verticesNeedUpdate=true;
+						geometrywindow.verticesNeedUpdate=true;
+						group1 = THREE.SceneUtils.createMultiMaterialObject( geometrywall, materialswall);
+						group2 = THREE.SceneUtils.createMultiMaterialObject( geometrydoor, materialsdoor);
+						group3 = THREE.SceneUtils.createMultiMaterialObject( geometrywindow, materialswindow);
+						scene.add( group1 );
+						scene.add( group2 );
+						scene.add( group3 );
+                        break;
+                }
+				}
+
+				this.animate = function() {
+					render();
+					stats.update();
+				};
+
+				function render() {
+					camera.lookAt( scene.position );
+					if (containerId.charAt(9)=='1')
+					{
+						camera.up = new THREE.Vector3(0,0,1);
+						camera.lookAt( new THREE.Vector3(camx[0]+Math.cos((camheading[0]-90)/180*Math.PI),-(camy[0]+Math.sin((camheading[0]-90)/180*Math.PI)),camheight) );
+					}
+					if (containerId.charAt(9)=='2')
+					{
+						camera.up = new THREE.Vector3(0,0,1);
+						camera.lookAt( new THREE.Vector3(camx[1]+Math.cos((camheading[1]-90)/180*Math.PI),-(camy[1]+Math.sin((camheading[1]-90)/180*Math.PI)),camheight) );
+					}
+					if (containerId.charAt(9)=='3')
+					{
+						camera.up = new THREE.Vector3(0,0,1);
+						camera.lookAt( new THREE.Vector3(camx[2]+Math.cos((camheading[2]-90)/180*Math.PI),-(camy[2]+Math.sin((camheading[2]-90)/180*Math.PI)),camheight) );
+					}
+					if (containerId.charAt(9)=='4')
+					{
+						camera.up = new THREE.Vector3(0,1,0);
+						camera.lookAt( new THREE.Vector3(300,-300,0) );
+					}
+					renderer.render( scene, camera );
+				}
+
+			}
+
+		</script>
+
+	</body>
+</html>
