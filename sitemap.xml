@@ -5,24 +5,11 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
-  <loc>http://chuhang.github.io/vision.html</loc>
+  <loc>http://chuhang.github.io/index.html</loc>
   <lastmod>2015-03-11T16:16:03+00:00</lastmod>
   <changefreq>weekly</changefreq>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/projects.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/misc.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.80</priority>
+  <priority>1.0</priority>
 </url>
 <url>
   <loc>http://chuhang.github.io/files/resume.pdf</loc>
@@ -61,12 +48,6 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://chuhang.github.io/files/slides/CVPRW_14_slides.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
   <loc>http://chuhang.github.io/ui5m_am.html</loc>
   <lastmod>2015-03-11T16:16:03+00:00</lastmod>
   <changefreq>weekly</changefreq>
@@ -85,111 +66,15 @@
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://chuhang.github.io/files/cs5670/Image%20Scissors/html/index.html</loc>
+  <loc>http://chuhang.github.io/files/publications/ICCV_15.pdf</loc>
   <lastmod>2015-03-11T16:16:03+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>http://chuhang.github.io/files/cs5670/Features/index.html</loc>
+  <loc>http://chuhang.github.io/files/publications/NIPSW_15.pdf</loc>
   <lastmod>2015-03-11T16:16:03+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Autostitch/index.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Single-View%20Modeling/index.htm</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Pedestrian%20Detection/index.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs6756.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5220/hw1.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5220/hw2.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5220/hw3.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5220/hw4.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5220/final.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5412/project_proposal.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5412/intermediate_report1.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5412/intermediate_report2.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5412/final_report.pdf</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Autostitch/pano_EC.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Autostitch/pano_noEC.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>http://chuhang.github.io/files/cs5670/Autostitch/pano_custom.html</loc>
-  <lastmod>2015-03-11T16:16:03+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.51</priority>
 </url>
 </urlset>
