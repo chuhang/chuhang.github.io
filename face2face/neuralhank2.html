@@ -43,9 +43,10 @@ $(document).ready(function()
 		var query_text='';
 		var vid1_type='';
 		var vid2_type='';
-		var cat_img_name = get_category_image_name();
-		var vid1_type = get_id1();
-		var vid2_type = get_id2();
+		var videostr = get_video_name();
+		var cat_img_name = get_video_file_name(videostr);
+		var vid1_type = get_id1(videostr);
+		var vid2_type = get_id2(videostr);
 		for (var i in captiondata) 
 		{
 			if(captiondata[i].video_name === cat_img_name)
@@ -66,46 +67,35 @@ $(document).ready(function()
 		$("#query1").text('Query: "'+query_text+'"');
 	}
 	
-	function get_category_image_name()
+	function get_video_name()
 	{
 		var cat_img_name = gup('video');
 		if(cat_img_name == "")
 		{
-			cat_img_name = 0;
+			cat_img_name = "0_0_1";
 		}
-		else
-		{
-			cat_img_name=parseInt(cat_img_name);
-		}
-		return namelist[cat_img_name];
+		return cat_img_name;
 	}
 	
-	function get_id1()
+	function get_video_file_name(cat_img_name)
 	{
-		var cat_img_name = gup('i1');
-		if(cat_img_name == "")
-		{
-			cat_img_name = 0;
-		}
-		else
-		{
-			cat_img_name=parseInt(cat_img_name);
-		}
-		return methodlist[cat_img_name];
+		var n = cat_img_name.indexOf("_");
+		var videoid = parseInt(cat_img_name.substring(0,n));
+		return namelist[videoid];
 	}
 	
-	function get_id2()
+	function get_id1(cat_img_name)
 	{
-		var cat_img_name = gup('i2');
-		if(cat_img_name == "")
-		{
-			cat_img_name = 1;
-		}
-		else
-		{
-			cat_img_name=parseInt(cat_img_name);
-		}
-		return methodlist[cat_img_name];
+		var n = cat_img_name.indexOf("_");
+		var id1 = parseInt(cat_img_name.substring(n+1,n+2));
+		return methodlist[id1];
+	}
+	
+	function get_id2(cat_img_name)
+	{
+		var n = cat_img_name.indexOf("_");
+		var id2 = parseInt(cat_img_name.substring(n+3,n+4));
+		return methodlist[id2];
 	}
 
 	function submitResults()
@@ -133,9 +123,13 @@ $(document).ready(function()
 		{
 			finalresult.push(result[i]);
 		}
-		finalresult.push(get_category_image_name());
-		finalresult.push(get_id1());
-		finalresult.push(get_id2());
+		var videostr = get_video_name();
+		var cat_img_name = get_video_file_name(videostr);
+		var vid1_type = get_id1(videostr);
+		var vid2_type = get_id2(videostr);
+		finalresult.push(cat_img_name);
+		finalresult.push(vid1_type);
+		finalresult.push(vid2_type);
 		submit_result= finalresult.join("&");
 		document.getElementById('segpoly').value = submit_result;
 		console.log(submit_result);
