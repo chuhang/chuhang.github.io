@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>NeuralHank - The Chatbot</title>
+<title>NeuralHank2 - The Chatbot</title>
 <meta http-equiv='Content-Type' content='text/html, charset=UTF-8, width=device-width,initial-scale=1' name="viewport" />
 <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" integrity="sha384-IS73LIqjtYesmURkDE9MXKbXqYA8rvKEp/ghicjem7Vc3mGRdQRptJSz60tvrB6+" rel="stylesheet" />
 
@@ -179,8 +179,8 @@ function selectchange(sel,num)
 <div class="row" id="workContent">
 <div class="col-xs-12 col-sm-8 col-md-12 image">
 
-<h3>The robot is trying to respond to a query sentence written by a human. <br>Please evaluate how relevant and natural and interesting the response is. <br>You will get to see 3 possible responses to the same query sentence. <br>Please help us pick the best one.</h3>
-<h3>Please read the query sentence, watch and listen the 3 robot responses. <br>Pay attention to both his words and facial expressions. <br>Then answer the questions.</h3>
+<h3>The robot is trying to respond to a query sentence written by a human. <br>Please evaluate how relevant and natural and interesting the response is. <br>You will get to see two possible responses to the same query sentence. <br>Please help us pick the better one.</h3>
+<h3>Please read the query sentence, watch and listen the two robot responses. <br>Pay attention to both his words and facial expressions. <br>Then answer the questions.</h3>
 <h2><font color="red">Note: please have html5 video player enabled, videos have sound.</font></h2>
 <table border="1">
 <col width="600">
@@ -189,8 +189,8 @@ function selectchange(sel,num)
 <td colspan="2"><i><u><h1 id="query1"></h1></u></i></td>
 </tr>
 <tr>
-<td><div class="cropper"><video id="vid1" width="1500"><source id="vid1_src" src="" type="video/mp4">You're unable to do this task because your browser does not support HTML5 video.</video></div></td>
-<td><div class="cropper"><video id="vid2" width="1500"><source id="vid2_src" src="" type="video/mp4">You're unable to do this task because your browser does not support HTML5 video.</video></div></td>
+<td><div class="cropper"><video id="vid1" width="1200"><source id="vid1_src" src="" type="video/mp4">You're unable to do this task because your browser does not support HTML5 video.</video></div></td>
+<td><div class="cropper"><video id="vid2" width="1200"><source id="vid2_src" src="" type="video/mp4">You're unable to do this task because your browser does not support HTML5 video.</video></div></td>
 </tr>
 <tr>
 <td><h3>Response1</h3><button type="button" onclick="play(1)" style="background-color:green">play</button></td>
@@ -297,21 +297,17 @@ hr.style13 {
     box-shadow: 0 10px 10px -10px #8c8b8b inset;
 }
 .cropper{
-    width: 700px;
+    width: 600px;
     overflow:hidden;
     display:block;
-    height: 700px;
+    height: 600px;
 }
 #vid1{
-    margin-left: -380px;
+    margin-left: -290px;
 	margin-top: -50px;
 }
 #vid2{
-    margin-left: -380px;
-	margin-top: -50px;
-}
-#vid3{
-    margin-left: -380px;
+    margin-left: -290px;
 	margin-top: -50px;
 }
 </style>
