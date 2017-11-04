@@ -64,7 +64,7 @@ $(document).ready(function()
 		var source = document.createElement('source');
 		source.setAttribute('src', base_url+'/'+vid2_type+'/'+cat_img_name+'.mp4');
 		video.appendChild(source);
-		$("#query1").text('Inquiry: "'+query_text+'"');
+		$("#query1").text('Human sentence: "'+query_text+'"');
 	}
 	
 	function get_video_name()
@@ -179,8 +179,8 @@ function selectchange(sel,num)
 <div class="row" id="workContent">
 <div class="col-xs-12 col-sm-8 col-md-12 image">
 
-<h3>The robot is trying to respond to a inquiry sentence written by a human. <br>Please evaluate how relevant and natural and interesting the response is. <br>You will get to see two possible responses to the same inquiry sentence. <br>Please help us pick the better one.</h3>
-<h3>Please read the inquiry sentence, watch and listen the two robot responses. <br>Pay attention to both his words and facial expressions. <br>Then answer the questions.</h3>
+<h3>The robot is trying to respond to a sentence written by a human. <br>Please evaluate how interesting and relevant and natural the response is. <br>You will get to see two possible responses to the same human sentence. <br>Please help us pick the better one.</h3>
+<h3>Please read the human sentence, watch and listen the two robot responses. <br>Pay attention to both robot words and facial expressions. <br>Then answer the questions.</h3>
 <h2><font color="red">Note: please have html5 video player enabled, videos have sound.</font></h2>
 <table border="1">
 <col width="600">
@@ -193,16 +193,16 @@ function selectchange(sel,num)
 <td><div class="cropper"><video id="vid2" width="1200"><source id="vid2_src" src="" type="video/mp4">You're unable to do this task because your browser does not support HTML5 video.</video></div></td>
 </tr>
 <tr>
-<td><h3>Response1</h3><button type="button" onclick="play(1)" style="background-color:green">play</button></td>
-<td><h3>Response2</h3><button type="button" onclick="play(2)" style="background-color:green">play</button></td>
+<td><h3>Robot Response1</h3><button type="button" onclick="play(1)" style="background-color:green">play</button></td>
+<td><h3>Robot Response2</h3><button type="button" onclick="play(2)" style="background-color:green">play</button></td>
 </tr>
 </table>
 
 <h2>Questions:</h2>
 <font color="red">
-<h3>A good robot is a robot whose response is:
+<h3>A good robot response is:
 <ul>
-<li>related to the inquiry sentence and meaningful</li>
+<li>related to the human sentence and meaningful</li>
 <li>interesting so the robot is fun to chat with, not just simple boring yes and no answers</li>
 <li>has natural facial expressions that goes along well with his words</li>
 </ul></h3></font>
